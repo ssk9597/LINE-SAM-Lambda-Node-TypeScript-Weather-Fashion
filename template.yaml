@@ -8,26 +8,38 @@ Globals:
     Timeout: 3
 
 Resources:
-  HelloWorldFunction:
+  # API Gateway
+  WeatherFashionAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: v1
+      Cors:
+        AllowMethods: "'POST, GET, OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
+        MaxAge: "'600'"
+  # Lambda
+  WeatherFashionFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: hello-world/
-      Handler: app.lambdaHandler
+      CodeUri: function/
+      Handler: index.handler
       Runtime: nodejs12.x
       Events:
-        HelloWorld:
+        WeatherFashionAPI:
           Type: Api
           Properties:
-            Path: /hello
-            Method: get
+            RestApiId: !Ref WeatherFashionAPI
+            Path: /
+            Method: post
 
 Outputs:
-  HelloWorldApi:
-    Description: 'API Gateway endpoint URL for Prod stage for Hello World function'
-    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/'
-  HelloWorldFunction:
-    Description: 'Hello World Lambda Function ARN'
-    Value: !GetAtt HelloWorldFunction.Arn
-  HelloWorldFunctionIamRole:
-    Description: 'Implicit IAM Role created for Hello World function'
-    Value: !GetAtt HelloWorldFunctionRole.Arn
+  WeatherFashionAPI:
+    Description: 'API Gateway'
+    Value: !Sub 'https://${WeatherFashionAPI}.execute-api.${AWS::Region}.amazonaws.com/v1'
+  WeatherFashionFunction:
+    Description: 'Lambda'
+    Value: !GetAtt WeatherFashionFunction.Arn
+  WeatherFashionFunctionIamRole:
+    Description: 'IAM Role'
+    Value: !GetAtt WeatherFashionFunctionRole.Arn
