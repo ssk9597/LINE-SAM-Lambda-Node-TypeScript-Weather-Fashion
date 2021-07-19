@@ -8,4 +8,8 @@
 
 ・SSM のポリシーを SAM Template の Function に追記
 
+・パッケージをインストール
+
 ・SSM パラメータが取得できているか console.log で検証
+
+・sam build, sam deploy（SSM の値が取れているか確認する）
