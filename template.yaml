@@ -22,9 +22,12 @@ Resources:
   WeatherFashionFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: function/
+      CodeUri: function/dist
       Handler: index.handler
       Runtime: nodejs12.x
+      Policies:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess
       Events:
         WeatherFashionAPI:
           Type: Api
