@@ -1,0 +1,26 @@
+{
+  "name": "function",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rimraf dist",
+    "tsc": "tsc",
+    "build": "npm-run-all clean tsc"
+  },
+  "dependencies": {
+    "@line/bot-sdk": "^7.3.0",
+    "aws-sdk": "^2.948.0",
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.3",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  }
+}

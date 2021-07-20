@@ -1,6 +1,9 @@
-export const buttonMessageTemplate = () => {
+// パッケージを読み込む
+import { TemplateMessage } from '@line/bot-sdk';
+
+export const buttonMessageTemplate = (): Promise<TemplateMessage> => {
   return new Promise((resolve, reject) => {
-    const params = {
+    const params: TemplateMessage = {
       type: 'template',
       altText: 'This is a buttons template',
       template: {
