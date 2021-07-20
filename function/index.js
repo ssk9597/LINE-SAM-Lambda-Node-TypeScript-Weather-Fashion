@@ -4,6 +4,9 @@
 const line = require('@line/bot-sdk');
 const aws = require('aws-sdk');
 
+// modules
+const buttonMessageTemplate = require('./Common/ButtonMessage/ButtonMessageTemplate');
+
 // SSM
 const ssm = new aws.SSM();
 const LINE_WEATHER_FASHION_CHANNEL_ACCESS_TOKEN = {
@@ -60,6 +63,8 @@ const actionButtonOrErrorMessage = async (event, client) => {
     const { text } = event.message;
 
     if (text === '今日の洋服は？') {
+      const buttonMessage = await buttonMessageTemplate();
+      await client.replyMessage(replyToken, buttonMessage);
     } else {
     }
   } catch (err) {
