@@ -22,7 +22,7 @@ Resources:
   WeatherFashionFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: function/
+      CodeUri: api/dist
       Handler: index.handler
       Runtime: nodejs12.x
       Policies:

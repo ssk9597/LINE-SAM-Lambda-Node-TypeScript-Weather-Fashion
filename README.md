@@ -13,3 +13,8 @@
 ・SSM パラメータが取得できているか console.log で検証
 
 ・sam build, sam deploy（SSM の値が取れているか確認する）
+
+・実際の動作を作成していく
+
+■ 参考
+https://qiita.com/Ryo9597/items/bf93618663f28e9d8f7f
