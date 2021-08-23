@@ -1,20 +1,30 @@
-# LINE MessagingAPI で作った天気予報アプリを AWS の SAM テンプレートを使ってデプロイしてみる！
+## LINE-SAM-Lambda-Node-TypeScript-Weather-Fashion
 
-## 手順
+### App 
+![image](https://user-images.githubusercontent.com/70458379/130440587-0529eba4-3e7b-44b1-9e03-0f8a139e54df.png)
 
-・SAM Template を記載する
+### Frontend
+・LINE
 
-・環境変数を SSM パラメータストアを使う
+### Backend
+・LINE(LINE Messaging API)
 
-・SSM のポリシーを SAM Template の Function に追記
+・Node.js
 
-・パッケージをインストール
+・TypeScript
 
-・SSM パラメータが取得できているか console.log で検証
+### Infra
+・AWS(Lambda, API Gateway, DynamoDB, S3)
 
-・sam build, sam deploy（SSM の値が取れているか確認する）
+・Serverless Framework
 
-・実際の動作を作成していく
+### アプリ概要
+皆さんは、今日の気温を聞いて、「快適に過ごすために今日のファッションをこうしよう」ってパッと思いつきますか？
 
-■ 参考
-https://qiita.com/Ryo9597/items/bf93618663f28e9d8f7f
+私は、最高気温、最低気温を聞いてもそれがどのくらい暑いのか、寒いのかがピンと来ず、洋服のチョイスを外したことがしばしばあります。
+
+こんな思いを2度としないために今回このアプリを作りました。
+
+### Qiita
+
+https://qiita.com/Ryo9597/items/f4cd222657a9278bfce9
